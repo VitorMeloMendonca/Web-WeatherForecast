@@ -1,0 +1,35 @@
+.form {
+    margin-left: 60px;
+    margin-top: 30px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+}
+
+.input-group {
+    margin-top: 30px;
+}
+
+.title {
+    text-align: center;
+}
+.informationGrid {
+    margin-top: 15px;
+}
+
+.columnGrid {
+    width: 140px; 
+    float: left; 
+}
+
+.columnDate {
+    width: 180px; 
+    float: left; 
+}
+
+.columnLine {
+    background-color: burlywood;
+}
+.alert {
+    color: red;
+    background: transparent;
+}

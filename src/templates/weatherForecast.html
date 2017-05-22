@@ -1,0 +1,75 @@
+<form name="weatherForecastForm" id="weatherForecastForm" class="form">
+    <div class="formGroup">
+        <div class="title">
+            <h2>{{Title}}</h2>
+        </div>
+        <div class="input-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="CityName" id="CityName" ng-model="Weather.CityName" placeholder="City Name"
+                            required="required">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ng-click="Search()" ng-if="weatherForecastForm.$valid">Search</button>
+                        </span>
+                    </div>
+                    <div ng-if="weatherForecastForm.$invalid">
+                        <small class="alert">Fill out the field city name!</small>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Unit</span>
+                        <select type="text" class="form-control" name="Unit" id="Unit" ng-model="Weather.Unit" ng-change="Change()" ng-disabled="weatherForecastForm.$invalid">
+                            <option value="metric">Centigrade</option>
+                            <option value="imperial">Fahrenheit</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div ng-repeat="r in WeatherData">
+                <div ng-repeat="t in r.list">
+                    <div class="informationGrid">
+                        <div style="position: relative; float: left; padding-right: 5px;">
+                            <div>
+                                <div>
+                                    <div class="columnDate">
+                                        <p class="columnLine">Date/Hour</p><span><strong>{{t.dt_txt}}</strong></span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Temperature</p>
+                                        <span>{{t.main.temp}} {{Weather.Unit == 'imperial' ? '°F': '°C'}}</span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Temperature Min</p>
+                                        <span>{{t.main.temp_min}} {{Weather.Unit == 'imperial' ? '°F': '°C'}}</span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Temperature Max
+                                        </p><span>{{t.main.temp_max}} {{Weather.Unit == 'imperial' ? '°F': '°C'}}</span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Wind</p>
+                                        <span>{{t.wind.speed}}<em >m/s</em></span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Humidity</p>
+                                        <span>{{t.main.humidity}}%</span>
+                                    </div>
+                                    <div class="columnGrid">
+                                        <p class="columnLine">Description</p>
+                                        <div class="row" ng-repeat="w in t.weather">
+                                            <span>{{w.description}} </span><br>
+                                            <img src="http://openweathermap.org/img/w/{{w.icon}}.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>

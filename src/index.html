@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="WeatherForecast">
+
+<head>
+    <title>Weather Forecast</title>
+    <meta charset="UTF-8">
+    <!-- styles -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/site.css">
+
+    <!-- scrips -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+
+    <!-- CONFIG -->
+    <script src="/js/config.js"></script>
+
+    <!-- Controllers -->
+    <script src="/js/controllers/WeatherForecastController.js"></script>
+
+    <!-- Factories -->
+    <script src="/js/factory/WeatherForecastFactory.js"></script>
+
+    <!-- Services -->
+    <script src="/js/services/ParameterService.js"></script>
+
+</head>
+
+<body>
+    <ng-view></ng-view>
+</body>
+
+</html>
